@@ -27,7 +27,7 @@ RUN dpkg --add-architecture i386 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py \
-    && pip3 install --upgrade setuptools cython==0.28.2 Pillow
+    && pip3 install --upgrade setuptools cython==0.29.3 Pillow
 
 RUN git config --global user.email "buildozer@example.com" \
     && git config --global user.name "Buildozer"
@@ -37,14 +37,12 @@ RUN adduser --disabled-password --gecos '' buildozer && mkdir /home/buildozer/bu
 RUN cd /opt \
     && git config --global user.email "you@example.com" \
     && git config --global user.name "Your Name" \
+
     && git clone https://github.com/kivy/python-for-android \
     && cd python-for-android \
-    && git remote add agilewalker https://github.com/agilewalker/python-for-android \
     && git remote add sombernight https://github.com/SomberNight/python-for-android \
     && git fetch --all \
-    && git checkout 93759f36ba45c7bbe0456a4b3e6788622924cbac \
-    && git cherry-pick a2fb5ecbc09c4847adbcfd03c6b1ca62b3d09b8d \
-    && git cherry-pick a0ef2007bc60ed642fbd8b61937995dbed0ddd24 \
+    && git checkout 86eeec7c19679a5886d5e095ce0a43f1da138f87 \
     && cd /opt \
     && git clone https://github.com/kivy/buildozer \
     && cd buildozer \
